@@ -1,0 +1,241 @@
+sysadmin@optimal9:~$ sudo apt-get update
+Hit:1 http://th.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://th.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://th.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists... Done
+
+sysadmin@optimal9:~$ sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+sysadmin@optimal9:~$ sudo apt install mariadb-server mariadb-client -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  galera-3 gawk libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl libdbi-perl libfcgi-perl libhtml-template-perl libreadline5 libsigsegv2
+  libsnappy1v5 libterm-readkey-perl mariadb-client-10.3 mariadb-client-core-10.3 mariadb-common mariadb-server-10.3 mariadb-server-core-10.3 socat
+Suggested packages:
+  gawk-doc libclone-perl libmldbm-perl libnet-daemon-perl libsql-statement-perl libipc-sharedcache-perl mailx mariadb-test tinyca
+The following NEW packages will be installed:
+  galera-3 gawk libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl libdbi-perl libfcgi-perl libhtml-template-perl libreadline5 libsigsegv2
+  libsnappy1v5 libterm-readkey-perl mariadb-client mariadb-client-10.3 mariadb-client-core-10.3 mariadb-common mariadb-server mariadb-server-10.3 mariadb-server-core-10.3 socat
+0 upgraded, 22 newly installed, 0 to remove and 0 not upgraded.
+Need to get 20.4 MB of archives.
+After this operation, 169 MB of additional disk space will be used.
+Get:1 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
+Get:2 http://th.archive.ubuntu.com/ubuntu focal-updates/main amd64 gawk amd64 1:5.0.1+dfsg-1ubuntu0.1 [415 kB]
+Get:3 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-common all 1:10.3.39-0ubuntu0.20.04.2 [16.0 kB]
+Get:4 http://th.archive.ubuntu.com/ubuntu focal/universe amd64 galera-3 amd64 25.3.29-1 [898 kB]
+Get:5 http://th.archive.ubuntu.com/ubuntu focal-updates/main amd64 libdbi-perl amd64 1.643-1ubuntu0.1 [730 kB]
+Get:6 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libconfig-inifiles-perl all 3.000002-1 [40.6 kB]
+Get:7 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libaio1 amd64 0.3.112-5 [7,184 B]
+Get:8 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libreadline5 amd64 5.2+dfsg-3build3 [100 kB]
+Get:9 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libsnappy1v5 amd64 1.1.8-1build1 [16.7 kB]
+Get:10 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-client-core-10.3 amd64 1:10.3.39-0ubuntu0.20.04.2 [5,872 kB]
+Get:11 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-client-10.3 amd64 1:10.3.39-0ubuntu0.20.04.2 [1,127 kB]
+Get:12 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-server-core-10.3 amd64 1:10.3.39-0ubuntu0.20.04.2 [6,250 kB]
+Get:13 http://th.archive.ubuntu.com/ubuntu focal/main amd64 socat amd64 1.7.3.3-2 [323 kB]
+Get:14 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-server-10.3 amd64 1:10.3.39-0ubuntu0.20.04.2 [4,202 kB]
+Get:15 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libcgi-pm-perl all 4.46-1 [186 kB]
+Get:16 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libfcgi-perl amd64 0.79-1 [33.1 kB]
+Get:17 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libcgi-fast-perl all 1:2.15-1 [10.5 kB]
+Get:18 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 libdbd-mysql-perl amd64 4.050-3ubuntu0.2 [83.2 kB]
+Get:19 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libhtml-template-perl all 2.97-1 [59.0 kB]
+Get:20 http://th.archive.ubuntu.com/ubuntu focal/main amd64 libterm-readkey-perl amd64 2.38-1build1 [24.6 kB]
+Get:21 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-client all 1:10.3.39-0ubuntu0.20.04.2 [12.5 kB]
+Get:22 http://th.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mariadb-server all 1:10.3.39-0ubuntu0.20.04.2 [12.7 kB]
+Fetched 20.4 MB in 1s (13.7 MB/s)
+
+sysadmin@optimal9:~$ mariadb --version
+mariadb  Ver 15.1 Distrib 10.6.17-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
+
+sysadmin@optimal9:~$ sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.6.17 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/mariadb.service.d
+             └─migrated-from-my.cnf-settings.conf
+     Active: active (running) since Mon 2024-04-22 16:38:01 +07; 2min 2s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+   Main PID: 8835 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 9 (limit: 30353)
+     Memory: 106.0M
+     CGroup: /system.slice/mariadb.service
+             └─8835 /usr/sbin/mariadbd
+
+เม.ย. 22 16:38:01 optimal9 mariadbd[8835]: 2024-04-22 16:38:01 0 [ERROR] Incorrect definition of table mysql.event: expected column 'definer' at position 3 to have type varchar(, f>
+เม.ย. 22 16:38:01 optimal9 mariadbd[8835]: 2024-04-22 16:38:01 0 [ERROR] mariadbd: Event Scheduler: An error occurred when initializing system tables. Disabling the Event Scheduler.
+เม.ย. 22 16:38:01 optimal9 mariadbd[8835]: 2024-04-22 16:38:01 0 [Note] /usr/sbin/mariadbd: ready for connections.
+เม.ย. 22 16:38:01 optimal9 mariadbd[8835]: Version: '10.6.17-MariaDB-1:10.6.17+maria~ubu2004'  socket: '/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
+เม.ย. 22 16:38:01 optimal9 systemd[1]: Started MariaDB 10.6.17 database server.
+เม.ย. 22 16:38:01 optimal9 /etc/mysql/debian-start[8851]: Upgrading MySQL tables if necessary.
+เม.ย. 22 16:38:10 optimal9 /etc/mysql/debian-start[8854]: mysql.user
+เม.ย. 22 16:38:10 optimal9 /etc/mysql/debian-start[8854]: Warning  : The user specified as a definer ('mariadb.sys'@'localhost') does not exist
+เม.ย. 22 16:38:10 optimal9 /etc/mysql/debian-start[9731]: Checking for insecure root accounts.
+เม.ย. 22 16:38:10 optimal9 /etc/mysql/debian-start[9739]: Triggering myisam-recover for all MyISAM tables and aria-recover for all Aria tables
+
+
+sysadmin@optimal9:~$ sudo mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password or using the unix_socket ensures that nobody
+can log into the MariaDB root user without the proper authorisation.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Switch to unix_socket authentication [Y/n] Y
+Enabled successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Change the root password? [Y/n]
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] Y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] n
+ ... skipping.
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] n
+ ... skipping.
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] n
+ ... skipping.
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+sysadmin@optimal9:~$ sudo mariadb -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 48
+Server version: 10.6.17-MariaDB-1:10.6.17+maria~ubu2004 mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+
+
+# The MariaDB configuration file
+#
+# The MariaDB/MySQL tools read configuration files in the following order:
+# 0. "/etc/mysql/my.cnf" symlinks to this file, reason why all the rest is read.
+# 1. "/etc/mysql/mariadb.cnf" (this file) to set global defaults,
+# 2. "/etc/mysql/conf.d/*.cnf" to set global options.
+# 3. "/etc/mysql/mariadb.conf.d/*.cnf" to set MariaDB-only options.
+# 4. "~/.my.cnf" to set user-specific options.
+#
+# If the same option is defined multiple times, the last one will apply.
+#
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# If you are new to MariaDB, check out https://mariadb.com/kb/en/basic-mariadb-articles/
+
+#
+# This group is read both by the client and the server
+# use it for options that affect everything
+#
+[client-server]
+# Port or socket location where to connect
+# port = 3306
+socket = /run/mysqld/mysqld.sock
+
+[mysqld]
+bind-address = 0.0.0.0/0
+
+# Import all .cnf files from configuration directory
+!includedir /etc/mysql/conf.d/
+!includedir /etc/mysql/mariadb.conf.d/
+~
+~
+~
+~
+~
+"/etc/mysql/my.cnf" 32L, 1161C
+
+MariaDB [(none)]> SELECT USER,HOST FROM mysql.user;
++-------------+-----------+
+| User        | Host      |
++-------------+-----------+
+| mariadb.sys | localhost |
+| mysql       | localhost |
+| root        | localhost |
++-------------+-----------+
+3 rows in set (0.003 sec)
+
+MariaDB [(none)]> CREATE USER 'neptunedb-admin'@'192.168.1.%' IDENTIFIED BY 'Neptune@123';
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [(none)]> SELECT USER,HOST FROM MYSQL.USER;
+ERROR 1146 (42S02): Table 'MYSQL.USER' doesn't exist
+MariaDB [(none)]> SELECT USER,HOST FROM mysql.user;
++-----------------+-------------+
+| User            | Host        |
++-----------------+-------------+
+| neptunedb-admin | 192.168.1.% |
+| mariadb.sys     | localhost   |
+| mysql           | localhost   |
+| root            | localhost   |
++-----------------+-------------+
+4 rows in set (0.004 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'neptunedb-admin'@'192.168.1.%';
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> SHOW GRANTS FOR 'neptunedb-admin'@'192.168.1.%';
++-----------------------------------------------------------------------------------------------------------------------------------+
+| Grants for neptunedb-admin@192.168.1.%                                                                                            |
++-----------------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO `neptunedb-admin`@`192.168.1.%` IDENTIFIED BY PASSWORD '*7ED9BB0D7F2B59623F949E5137AF8BC981990FDA' |
++-----------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
